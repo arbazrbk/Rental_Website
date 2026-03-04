@@ -11,12 +11,7 @@ class Property(models.Model):
     baths = models.IntegerField()
     sqft = models.IntegerField()
     image = models.ImageField(upload_to='properties/')
-    
-class Service(models.Model):
-    icon = models.CharField(max_length=50)
-    title = models.CharField(max_length=100)    
-    description = models.TextField()
-    
+       
 class feedback(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
