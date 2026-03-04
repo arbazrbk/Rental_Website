@@ -1,0 +1,176 @@
+/* Custom styles for DreamHome Realty */
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+    background-color: rgba(37, 99, 235, 0.2);
+    color: inherit;
+}
+
+/* Focus styles */
+*:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* Image loading placeholder */
+img {
+    background-color: #f1f5f9;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Bounce animation for scroll indicator */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 1.5s infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Button lift effect */
+.btn-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Glass effect */
+.glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Mobile menu animation */
+#mobile-menu {
+    transition: all 0.3s ease;
+}
+
+/* Form input focus states */
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Property card image zoom */
+.property-image-zoom {
+    transition: transform 0.5s ease;
+}
+
+.property-image-zoom:hover {
+    transform: scale(1.1);
+}
+
+/* Service card border colors on hover */
+.service-card-blue:hover {
+    border-color: #bfdbfe;
+}
+
+.service-card-green:hover {
+    border-color: #bbf7d0;
+}
+
+.service-card-orange:hover {
+    border-color: #fed7aa;
+}
+
+.service-card-purple:hover {
+    border-color: #e9d5ff;
+}
+
+.service-card-pink:hover {
+    border-color: #fbcfe8;
+}
+
+.service-card-cyan:hover {
+    border-color: #a5f3fc;
+}
+
+/* Testimonial quote icon */
+.quote-icon {
+    opacity: 0.1;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+    
+    h2 {
+        font-size: 1.875rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    nav,
+    footer,
+    #scroll-to-top {
+        display: none !important;
+    }
+}
