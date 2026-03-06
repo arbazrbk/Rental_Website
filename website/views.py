@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Property, feedback, register, contact as ContactModel
 from django.views.decorators.csrf import csrf_exempt
 from .forms import FeedbackForm, ContactForm, RegisterForm, PropertyForm, loginForm, MyPasswordChangeForm
 
 def home(request):
-    return render(request, 'website/index.html')
+    properties = Property.objects.all()[:6]
+    return render(request, 'website/index.html', {'properties': properties})
 
 
 def properties(request):
@@ -51,6 +52,9 @@ def feedback_page(request):
 
     return render(request, 'website/feedback.html', {'form': form, 'success': success, 'feedback_items': feedback_items})
 
+def detail(request, pk):
+    property = get_object_or_404(Property, pk=pk)
+    return render(request, 'website/detail.html', {'property': property})
 
 def submit_feedback(request):
     return feedback_page(request)
