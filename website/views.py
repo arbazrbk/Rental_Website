@@ -23,18 +23,27 @@ def about(request):
 
 
 def testimonials(request):
-    feedbacks = feedback.objects.all()
+    feedbacks = feedback.objects.order_by('-id')
     return render(request, 'website/testimonials.html', {'feedback': feedbacks})
 
 
 def contact(request):
     return render(request, 'website/contact.html')
 
+
+def feedback_page(request):
+    form = FeedbackForm(request.POST or None)
+    success = False
+    feedback_items = feedback.objects.order_by('-id')[:6]
+
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        form = FeedbackForm()
+        success = True
+        feedback_items = feedback.objects.order_by('-id')[:6]
+
+    return render(request, 'website/feedback.html', {'form': form, 'success': success, 'feedback_items': feedback_items})
+
+
 def submit_feedback(request):
-    if request.method == 'POST':    
-        form = FeedbackForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, 'website/contact.html', {'form': form})
-        else:
-            return render(request, 'website/contact.html', {'success': False, 'message': 'Invalid form data.'})
+    return feedback_page(request)

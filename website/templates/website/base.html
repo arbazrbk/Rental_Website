@@ -63,6 +63,7 @@
                     <a href="{% url 'services' %}#services" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Services</a>
                     <a href="{% url 'about' %}#about" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">About</a>
                     <a href="{% url 'testimonials' %}#testimonials" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Testimonials</a>
+                    <a href="{% url 'feedback' %}" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Feedback</a>
                     <a href="{% url 'contact' %}#contact" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Contact</a>
                 </div>
 
@@ -90,6 +91,7 @@
                 <a href="{% url 'services' %}#services" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Services</a>
                 <a href="{% url 'about' %}#about" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">About</a>
                 <a href="{% url 'testimonials' %}#testimonials" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Testimonials</a>
+                <a href="{% url 'feedback' %}" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Feedback</a>
                 <a href="{% url 'contact' %}#contact" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Contact</a>
                 <a href="{% url 'contact' %}#contact" class="block mt-4 px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl text-center">Get Started</a>
             </div>
@@ -224,50 +226,58 @@
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const scrollToTopBtn = document.getElementById('scroll-to-top');
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.remove('bg-transparent', 'py-5');
-                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-lg', 'py-3');
-                
-                logoBg.classList.remove('bg-white/20');
-                logoBg.classList.add('bg-primary-600');
-                
-                logoText.classList.remove('text-white');
-                logoText.classList.add('text-gray-900');
-                
+        // Check if page has a dark hero section; if not, force solid navbar immediately
+        const hasHero = document.querySelector('#home');
+
+        function setScrolledNav() {
+            navbar.classList.remove('bg-transparent', 'py-5');
+            navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-lg', 'py-3');
+            logoBg.classList.remove('bg-white/20');
+            logoBg.classList.add('bg-primary-600');
+            logoText.classList.remove('text-white');
+            logoText.classList.add('text-gray-900');
+            if (navCta) {
                 navCta.classList.remove('bg-white', 'text-primary-600');
                 navCta.classList.add('bg-primary-600', 'text-white');
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('text-white/90');
-                    link.classList.add('text-gray-700');
-                });
+            }
+            navLinks.forEach(link => {
+                link.classList.remove('text-white/90');
+                link.classList.add('text-gray-700');
+            });
+            mobileMenuBtn.classList.remove('text-white');
+            mobileMenuBtn.classList.add('text-gray-900');
+        }
 
-                mobileMenuBtn.classList.remove('text-white');
-                mobileMenuBtn.classList.add('text-gray-900');
-
-                scrollToTopBtn.classList.remove('hidden');
-            } else {
-                navbar.classList.add('bg-transparent', 'py-5');
-                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-lg', 'py-3');
-                
-                logoBg.classList.add('bg-white/20');
-                logoBg.classList.remove('bg-primary-600');
-                
-                logoText.classList.add('text-white');
-                logoText.classList.remove('text-gray-900');
-                
+        function setTransparentNav() {
+            navbar.classList.add('bg-transparent', 'py-5');
+            navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-lg', 'py-3');
+            logoBg.classList.add('bg-white/20');
+            logoBg.classList.remove('bg-primary-600');
+            logoText.classList.add('text-white');
+            logoText.classList.remove('text-gray-900');
+            if (navCta) {
                 navCta.classList.add('bg-white', 'text-primary-600');
                 navCta.classList.remove('bg-primary-600', 'text-white');
-                
-                navLinks.forEach(link => {
-                    link.classList.add('text-white/90');
-                    link.classList.remove('text-gray-700');
-                });
+            }
+            navLinks.forEach(link => {
+                link.classList.add('text-white/90');
+                link.classList.remove('text-gray-700');
+            });
+            mobileMenuBtn.classList.add('text-white');
+            mobileMenuBtn.classList.remove('text-gray-900');
+        }
 
-                mobileMenuBtn.classList.add('text-white');
-                mobileMenuBtn.classList.remove('text-gray-900');
+        if (!hasHero) {
+            // Non-home pages: always show solid white navbar
+            setScrolledNav();
+        }
 
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100 || !hasHero) {
+                setScrolledNav();
+                scrollToTopBtn.classList.remove('hidden');
+            } else {
+                setTransparentNav();
                 scrollToTopBtn.classList.add('hidden');
             }
         });

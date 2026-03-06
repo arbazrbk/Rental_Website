@@ -2,7 +2,7 @@
 {% block title %}Services - DreamHome Realty{% endblock %}
 {% block content %}
 <!-- Services Section -->
-<section id="services" class="py-20 lg:py-28 bg-white">
+<section id="services" class="pt-32 pb-20 lg:pt-36 lg:pb-28 bg-white min-h-screen">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<!-- Section Header -->
 		<div class="text-center mb-16">
@@ -13,75 +13,158 @@
 				Comprehensive Real Estate Solutions
 			</h2>
 			<p class="text-lg text-gray-600 max-w-2xl mx-auto">
-				From buying and selling to renting and management, we offer a complete range 
+				From buying and selling to renting and management, we offer a complete range
 				of services to meet all your real estate needs.
 			</p>
 		</div>
 
 		<!-- Services Grid -->
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-			{% for service in services %}
-			<div class="group border border-gray-100 hover:shadow-xl transition-all duration-300 rounded-2xl {% if service.color == 'blue' %}hover:border-blue-200{% elif service.color == 'green' %}hover:border-green-200{% elif service.color == 'orange' %}hover:border-orange-200{% elif service.color == 'purple' %}hover:border-purple-200{% elif service.color == 'pink' %}hover:border-pink-200{% else %}hover:border-cyan-200{% endif %}">
+
+			<!-- 1. Property Sales -->
+			<div class="group border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300 rounded-2xl">
 				<div class="p-8">
-					<!-- Icon -->
-					<div class="w-14 h-14 {% if service.color == 'blue' %}bg-blue-50{% elif service.color == 'green' %}bg-green-50{% elif service.color == 'orange' %}bg-orange-50{% elif service.color == 'purple' %}bg-purple-50{% elif service.color == 'pink' %}bg-pink-50{% else %}bg-cyan-50{% endif %} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-						{% if service.icon == 'home' %}
-						<svg class="w-7 h-7 {% if service.color == 'blue' %}text-blue-600{% elif service.color == 'green' %}text-green-600{% elif service.color == 'orange' %}text-orange-600{% elif service.color == 'purple' %}text-purple-600{% elif service.color == 'pink' %}text-pink-600{% else %}text-cyan-600{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+						<svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
 						</svg>
-						{% elif service.icon == 'key' %}
-						<svg class="w-7 h-7 {% if service.color == 'blue' %}text-blue-600{% elif service.color == 'green' %}text-green-600{% elif service.color == 'orange' %}text-orange-600{% elif service.color == 'purple' %}text-purple-600{% elif service.color == 'pink' %}text-pink-600{% else %}text-cyan-600{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
-						</svg>
-						{% elif service.icon == 'trending' %}
-						<svg class="w-7 h-7 {% if service.color == 'blue' %}text-blue-600{% elif service.color == 'green' %}text-green-600{% elif service.color == 'orange' %}text-orange-600{% elif service.color == 'purple' %}text-purple-600{% elif service.color == 'pink' %}text-pink-600{% else %}text-cyan-600{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-						</svg>
-						{% elif service.icon == 'shield' %}
-						<svg class="w-7 h-7 {% if service.color == 'blue' %}text-blue-600{% elif service.color == 'green' %}text-green-600{% elif service.color == 'orange' %}text-orange-600{% elif service.color == 'purple' %}text-purple-600{% elif service.color == 'pink' %}text-pink-600{% else %}text-cyan-600{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-						</svg>
-						{% elif service.icon == 'users' %}
-						<svg class="w-7 h-7 {% if service.color == 'blue' %}text-blue-600{% elif service.color == 'green' %}text-green-600{% elif service.color == 'orange' %}text-orange-600{% elif service.color == 'purple' %}text-purple-600{% elif service.color == 'pink' %}text-pink-600{% else %}text-cyan-600{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-						</svg>
-						{% else %}
-						<svg class="w-7 h-7 {% if service.color == 'blue' %}text-blue-600{% elif service.color == 'green' %}text-green-600{% elif service.color == 'orange' %}text-orange-600{% elif service.color == 'purple' %}text-purple-600{% elif service.color == 'pink' %}text-pink-600{% else %}text-cyan-600{% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-						</svg>
-						{% endif %}
 					</div>
-
-					<!-- Title -->
-					<h3 class="text-xl font-bold text-gray-900 mb-3">
-						{{ service.title }}
-					</h3>
-
-					<!-- Description -->
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Property Sales</h3>
 					<p class="text-gray-600 mb-6 leading-relaxed">
-						{{ service.description }}
+						We help you sell your property at the best market price with expert guidance, marketing strategies, and end-to-end transaction support.
 					</p>
-
-					<!-- Features -->
 					<ul class="space-y-2 mb-6">
-						{% for feature in service.features %}
-						<li class="flex items-center gap-2 text-sm text-gray-600">
-							<div class="w-1.5 h-1.5 rounded-full {% if service.color == 'blue' %}bg-blue-600{% elif service.color == 'green' %}bg-green-600{% elif service.color == 'orange' %}bg-orange-600{% elif service.color == 'purple' %}bg-purple-600{% elif service.color == 'pink' %}bg-pink-600{% else %}bg-cyan-600{% endif %}"></div>
-							{{ feature }}
-						</li>
-						{% endfor %}
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-blue-600"></div>Market valuation & pricing</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-blue-600"></div>Professional photography</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-blue-600"></div>Negotiation & closing</li>
 					</ul>
-
-					<!-- Learn More Link -->
-					<a href="#contact" class="inline-flex items-center gap-2 text-sm font-medium {% if service.color == 'blue' %}text-blue-600{% elif service.color == 'green' %}text-green-600{% elif service.color == 'orange' %}text-orange-600{% elif service.color == 'purple' %}text-purple-600{% elif service.color == 'pink' %}text-pink-600{% else %}text-cyan-600{% endif %} hover:gap-3 transition-all">
+					<a href="{% url 'contact' %}" class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:gap-3 transition-all">
 						Learn More
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-						</svg>
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
 					</a>
 				</div>
 			</div>
-			{% endfor %}
+
+			<!-- 2. House Rentals -->
+			<div class="group border border-gray-100 hover:shadow-xl hover:border-green-200 transition-all duration-300 rounded-2xl">
+				<div class="p-8">
+					<div class="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+						<svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">House Rentals</h3>
+					<p class="text-gray-600 mb-6 leading-relaxed">
+						Find the perfect rental home that fits your lifestyle and budget. We connect tenants with quality properties across all neighborhoods.
+					</p>
+					<ul class="space-y-2 mb-6">
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>Verified listings</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>Flexible lease options</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-green-600"></div>Tenant screening</li>
+					</ul>
+					<a href="{% url 'contact' %}" class="inline-flex items-center gap-2 text-sm font-medium text-green-600 hover:gap-3 transition-all">
+						Learn More
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+					</a>
+				</div>
+			</div>
+
+			<!-- 3. Investment Consulting -->
+			<div class="group border border-gray-100 hover:shadow-xl hover:border-orange-200 transition-all duration-300 rounded-2xl">
+				<div class="p-8">
+					<div class="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+						<svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Investment Consulting</h3>
+					<p class="text-gray-600 mb-6 leading-relaxed">
+						Make smart real estate investments with our data-driven insights, ROI analysis, and expert market knowledge.
+					</p>
+					<ul class="space-y-2 mb-6">
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-orange-600"></div>ROI forecasting</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-orange-600"></div>Market trend analysis</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-orange-600"></div>Portfolio diversification</li>
+					</ul>
+					<a href="{% url 'contact' %}" class="inline-flex items-center gap-2 text-sm font-medium text-orange-600 hover:gap-3 transition-all">
+						Learn More
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+					</a>
+				</div>
+			</div>
+
+			<!-- 4. Property Management -->
+			<div class="group border border-gray-100 hover:shadow-xl hover:border-purple-200 transition-all duration-300 rounded-2xl">
+				<div class="p-8">
+					<div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+						<svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Property Management</h3>
+					<p class="text-gray-600 mb-6 leading-relaxed">
+						Leave the hassle of managing your properties to us. We handle maintenance, rent collection, and tenant relations professionally.
+					</p>
+					<ul class="space-y-2 mb-6">
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-purple-600"></div>Maintenance coordination</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-purple-600"></div>Rent collection</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-purple-600"></div>Regular inspections</li>
+					</ul>
+					<a href="{% url 'contact' %}" class="inline-flex items-center gap-2 text-sm font-medium text-purple-600 hover:gap-3 transition-all">
+						Learn More
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+					</a>
+				</div>
+			</div>
+
+			<!-- 5. Buyer Representation -->
+			<div class="group border border-gray-100 hover:shadow-xl hover:border-pink-200 transition-all duration-300 rounded-2xl">
+				<div class="p-8">
+					<div class="w-14 h-14 bg-pink-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+						<svg class="w-7 h-7 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Buyer Representation</h3>
+					<p class="text-gray-600 mb-6 leading-relaxed">
+						Our dedicated buyer agents work exclusively in your interest to find, negotiate, and secure the best property deals for you.
+					</p>
+					<ul class="space-y-2 mb-6">
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-pink-600"></div>Dedicated agent support</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-pink-600"></div>Price negotiation</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-pink-600"></div>Home inspection guidance</li>
+					</ul>
+					<a href="{% url 'contact' %}" class="inline-flex items-center gap-2 text-sm font-medium text-pink-600 hover:gap-3 transition-all">
+						Learn More
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+					</a>
+				</div>
+			</div>
+
+			<!-- 6. Legal Assistance -->
+			<div class="group border border-gray-100 hover:shadow-xl hover:border-cyan-200 transition-all duration-300 rounded-2xl">
+				<div class="p-8">
+					<div class="w-14 h-14 bg-cyan-50 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+						<svg class="w-7 h-7 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Legal Assistance</h3>
+					<p class="text-gray-600 mb-6 leading-relaxed">
+						Navigate complex property laws and documentation with our legal support, ensuring every transaction is safe, compliant, and transparent.
+					</p>
+					<ul class="space-y-2 mb-6">
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-cyan-600"></div>Contract review</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-cyan-600"></div>Title verification</li>
+						<li class="flex items-center gap-2 text-sm text-gray-600"><div class="w-1.5 h-1.5 rounded-full bg-cyan-600"></div>Regulatory compliance</li>
+					</ul>
+					<a href="{% url 'contact' %}" class="inline-flex items-center gap-2 text-sm font-medium text-cyan-600 hover:gap-3 transition-all">
+						Learn More
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+					</a>
+				</div>
+			</div>
+
 		</div>
 
 		<!-- Bottom CTA -->
@@ -90,10 +173,10 @@
 				Need a Custom Solution?
 			</h3>
 			<p class="text-primary-100 max-w-2xl mx-auto mb-8">
-				Every client has unique needs. Contact us to discuss how we can tailor our services 
+				Every client has unique needs. Contact us to discuss how we can tailor our services
 				to help you achieve your real estate goals.
 			</p>
-			<a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:bg-primary-50 transition-colors">
+			<a href="{% url 'contact' %}" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-600 font-semibold rounded-xl hover:bg-primary-50 transition-colors">
 				Get in Touch
 				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>

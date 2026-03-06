@@ -1,6 +1,56 @@
 {% extends 'website/base.html' %}
 {% block title %}Testimonials - DreamHome Realty{% endblock %}
 {% block content %}
-<h1>Testimonials Section</h1>
-<!-- Add your Testimonials section content here -->
+<section id="testimonials" class="pt-32 pb-20 lg:pt-36 lg:pb-28 bg-gradient-to-b from-white to-slate-50 min-h-screen">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="text-center mb-14">
+			<span class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+				Client Feedback
+			</span>
+			<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+				What Our Clients Say
+			</h1>
+			<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+				Real reviews from clients who trusted DreamHome with their property journey.
+			</p>
+		</div>
+
+		{% if feedback %}
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			{% for item in feedback %}
+			<article class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 p-6">
+				<div class="flex items-center justify-between mb-4">
+					<div class="flex items-center gap-3">
+						<div class="w-11 h-11 rounded-full bg-primary-100 text-primary-700 grid place-items-center font-bold text-lg">
+							{{ item.name|slice:":1"|upper }}
+						</div>
+						<div>
+							<h3 class="font-semibold text-gray-900 leading-tight">{{ item.name }}</h3>
+							<p class="text-sm text-gray-500">{{ item.email }}</p>
+						</div>
+					</div>
+					<div class="flex text-amber-400" aria-label="5 stars">
+						<svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.12 3.447a1 1 0 00.95.69h3.626c.969 0 1.371 1.24.588 1.81l-2.934 2.132a1 1 0 00-.364 1.118l1.12 3.447c.3.921-.755 1.688-1.54 1.118l-2.934-2.132a1 1 0 00-1.176 0l-2.934 2.132c-.784.57-1.838-.197-1.539-1.118l1.12-3.447a1 1 0 00-.364-1.118L2.765 8.874c-.783-.57-.38-1.81.588-1.81h3.626a1 1 0 00.95-.69l1.12-3.447z"></path></svg>
+						<svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.12 3.447a1 1 0 00.95.69h3.626c.969 0 1.371 1.24.588 1.81l-2.934 2.132a1 1 0 00-.364 1.118l1.12 3.447c.3.921-.755 1.688-1.54 1.118l-2.934-2.132a1 1 0 00-1.176 0l-2.934 2.132c-.784.57-1.838-.197-1.539-1.118l1.12-3.447a1 1 0 00-.364-1.118L2.765 8.874c-.783-.57-.38-1.81.588-1.81h3.626a1 1 0 00.95-.69l1.12-3.447z"></path></svg>
+						<svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.12 3.447a1 1 0 00.95.69h3.626c.969 0 1.371 1.24.588 1.81l-2.934 2.132a1 1 0 00-.364 1.118l1.12 3.447c.3.921-.755 1.688-1.54 1.118l-2.934-2.132a1 1 0 00-1.176 0l-2.934 2.132c-.784.57-1.838-.197-1.539-1.118l1.12-3.447a1 1 0 00-.364-1.118L2.765 8.874c-.783-.57-.38-1.81.588-1.81h3.626a1 1 0 00.95-.69l1.12-3.447z"></path></svg>
+						<svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.12 3.447a1 1 0 00.95.69h3.626c.969 0 1.371 1.24.588 1.81l-2.934 2.132a1 1 0 00-.364 1.118l1.12 3.447c.3.921-.755 1.688-1.54 1.118l-2.934-2.132a1 1 0 00-1.176 0l-2.934 2.132c-.784.57-1.838-.197-1.539-1.118l1.12-3.447a1 1 0 00-.364-1.118L2.765 8.874c-.783-.57-.38-1.81.588-1.81h3.626a1 1 0 00.95-.69l1.12-3.447z"></path></svg>
+						<svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.12 3.447a1 1 0 00.95.69h3.626c.969 0 1.371 1.24.588 1.81l-2.934 2.132a1 1 0 00-.364 1.118l1.12 3.447c.3.921-.755 1.688-1.54 1.118l-2.934-2.132a1 1 0 00-1.176 0l-2.934 2.132c-.784.57-1.838-.197-1.539-1.118l1.12-3.447a1 1 0 00-.364-1.118L2.765 8.874c-.783-.57-.38-1.81.588-1.81h3.626a1 1 0 00.95-.69l1.12-3.447z"></path></svg>
+					</div>
+				</div>
+
+				<p class="text-gray-700 leading-relaxed">"{{ item.message }}"</p>
+			</article>
+			{% endfor %}
+		</div>
+		{% else %}
+		<div class="bg-white border border-dashed border-gray-300 rounded-2xl p-12 text-center">
+			<h3 class="text-2xl font-semibold text-gray-900 mb-2">No feedback yet</h3>
+			<p class="text-gray-600 mb-6">Be the first one to share your experience with us.</p>
+			<a href="{% url 'feedback' %}" class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors">
+				Leave Feedback
+			</a>
+		</div>
+		{% endif %}
+	</div>
+</section>
 {% endblock %}
