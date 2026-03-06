@@ -1,6 +1,75 @@
 {% extends 'website/base.html' %}
 {% block title %}Properties - DreamHome Realty{% endblock %}
 {% block content %}
-<h1>Properties Section</h1>
-<!-- Add your Properties section content here -->
+<section id="properties" class="pt-32 pb-20 lg:pt-36 lg:pb-28 bg-gray-50 min-h-screen">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="text-center mb-12">
+			<span class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+				Property Listings
+			</span>
+			<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+				Explore Available Properties
+			</h1>
+			<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+				Verified homes and investment opportunities hand-picked for your needs.
+			</p>
+		</div>
+
+		{% if properties %}
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			{% for property in properties %}
+			<article class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+				<div class="relative h-56 overflow-hidden bg-gray-100">
+					{% if property.image %}
+					<img
+						src="{{ property.image.url }}"
+						alt="{{ property.title }}"
+						class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+					/>
+					{% else %}
+					<div class="w-full h-full grid place-items-center text-gray-500 text-sm font-medium">
+						No image available
+					</div>
+					{% endif %}
+					<div class="absolute top-4 left-4">
+						<span class="px-3 py-1 bg-primary-600 text-white text-xs font-semibold rounded-full">
+							{{ property.property_type }}
+						</span>
+					</div>
+				</div>
+
+				<div class="p-6">
+					<div class="flex items-start justify-between gap-3 mb-2">
+						<h2 class="text-xl font-bold text-gray-900 leading-tight">{{ property.title }}</h2>
+						<span class="text-primary-700 font-bold whitespace-nowrap">{{ property.price }}</span>
+					</div>
+
+					<p class="text-sm text-gray-500 mb-5">{{ property.location }}</p>
+
+					<div class="grid grid-cols-3 gap-3 pt-4 border-t border-gray-100 text-sm">
+						<div class="text-center">
+							<p class="font-semibold text-gray-800">{{ property.beds }}</p>
+							<p class="text-gray-500">Beds</p>
+						</div>
+						<div class="text-center">
+							<p class="font-semibold text-gray-800">{{ property.baths }}</p>
+							<p class="text-gray-500">Baths</p>
+						</div>
+						<div class="text-center">
+							<p class="font-semibold text-gray-800">{{ property.sqft }}</p>
+							<p class="text-gray-500">Sqft</p>
+						</div>
+					</div>
+				</div>
+			</article>
+			{% endfor %}
+		</div>
+		{% else %}
+		<div class="bg-white rounded-2xl border border-dashed border-gray-300 p-12 text-center">
+			<h3 class="text-2xl font-semibold text-gray-900 mb-2">No properties found</h3>
+			<p class="text-gray-600">Please add property records from the admin panel.</p>
+		</div>
+		{% endif %}
+	</div>
+</section>
 {% endblock %}

@@ -1,17 +1,17 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from .models import Property, feedback, register
 from django.views.decorators.csrf import csrf_exempt
-import json
 
-from dreamhome.website.forms import FeedbackForm
+
+from .forms import FeedbackForm
 
 def home(request):
     return render(request, 'website/index.html')
 
 
 def properties(request):
-    """Properties page view"""
-    return render(request, 'website/properties.html')
+    properties = Property.objects.all()
+    return render(request, 'website/properties.html', {'properties': properties})
 
 
 def services(request):
@@ -23,9 +23,8 @@ def about(request):
 
 
 def testimonials(request):
-    user = request.user
-    feedback = feedback.objects.filter(user=user)
-    return render(request, 'website/testimonials.html', {'feedback': feedback})
+    feedbacks = feedback.objects.all()
+    return render(request, 'website/testimonials.html', {'feedback': feedbacks})
 
 
 def contact(request):

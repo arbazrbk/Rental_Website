@@ -59,16 +59,16 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center gap-8">
                     <a href="{% url 'home' %}" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Home</a>
-                    <a href="{% url 'home' %}#properties" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Properties</a>
-                    <a href="{% url 'home' %}#services" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Services</a>
-                    <a href="{% url 'home' %}#about" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">About</a>
-                    <a href="{% url 'home' %}#testimonials" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Testimonials</a>
-                    <a href="{% url 'home' %}#contact" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Contact</a>
+                    <a href="{% url 'properties' %}#properties" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Properties</a>
+                    <a href="{% url 'services' %}#services" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Services</a>
+                    <a href="{% url 'about' %}#about" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">About</a>
+                    <a href="{% url 'testimonials' %}#testimonials" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Testimonials</a>
+                    <a href="{% url 'contact' %}#contact" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Contact</a>
                 </div>
 
                 <!-- CTA Button -->
                 <div class="hidden lg:block">
-                    <a href="{% url 'home' %}#contact" id="nav-cta" class="px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-white/90 transition-colors">
+                    <a href="{% url 'contact' %}#contact" id="nav-cta" class="px-6 py-3 bg-white text-primary-600 font-semibold rounded-xl hover:bg-white/90 transition-colors">
                         Get Started
                     </a>
                 </div>
@@ -86,12 +86,12 @@
         <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl">
             <div class="p-6 space-y-4">
                 <a href="{% url 'home' %}" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Home</a>
-                <a href="{% url 'home' %}#properties" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Properties</a>
-                <a href="{% url 'home' %}#services" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Services</a>
-                <a href="{% url 'home' %}#about" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">About</a>
-                <a href="{% url 'home' %}#testimonials" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Testimonials</a>
-                <a href="{% url 'home' %}#contact" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Contact</a>
-                <a href="{% url 'home' %}#contact" class="block mt-4 px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl text-center">Get Started</a>
+                <a href="{% url 'properties' %}#properties" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Properties</a>
+                <a href="{% url 'services' %}#services" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Services</a>
+                <a href="{% url 'about' %}#about" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">About</a>
+                <a href="{% url 'testimonials' %}#testimonials" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Testimonials</a>
+                <a href="{% url 'contact' %}#contact" class="block text-lg font-medium text-gray-800 hover:text-primary-600 py-2 border-b border-gray-100">Contact</a>
+                <a href="{% url 'contact' %}#contact" class="block mt-4 px-6 py-3 bg-primary-600 text-white font-semibold rounded-xl text-center">Get Started</a>
             </div>
         </div>
     </nav>
@@ -141,11 +141,11 @@
                     <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
                     <ul class="space-y-3">
                         <li><a href="{% url 'home' %}" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="{% url 'home' %}#properties" class="text-gray-400 hover:text-white transition-colors">Properties</a></li>
-                        <li><a href="{% url 'home' %}#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-                        <li><a href="{% url 'home' %}#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="{% url 'home' %}#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
-                        <li><a href="{% url 'home' %}#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="{% url 'properties' %}#properties" class="text-gray-400 hover:text-white transition-colors">Properties</a></li>
+                        <li><a href="{% url 'services' %}#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="{% url 'about' %}#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="{% url 'testimonials' %}#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="{% url 'contact' %}#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
