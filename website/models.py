@@ -17,7 +17,13 @@ class feedback(models.Model):
     email = models.EmailField()
     message = models.TextField()
     
-
+class contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=20)
+    message = models.TextField()
+    
+    
 class register(models.Model):
     username = models.CharField(max_length=150)
     email = models.EmailField()

@@ -1,9 +1,7 @@
 from django.shortcuts import render
-from .models import Property, feedback, register
+from .models import Property, feedback, register, contact as ContactModel
 from django.views.decorators.csrf import csrf_exempt
-
-
-from .forms import FeedbackForm
+from .forms import FeedbackForm, ContactForm, RegisterForm, PropertyForm, loginForm, MyPasswordChangeForm
 
 def home(request):
     return render(request, 'website/index.html')
@@ -28,7 +26,16 @@ def testimonials(request):
 
 
 def contact(request):
-    return render(request, 'website/contact.html')
+    form = ContactForm(request.POST or None)
+    success = False
+
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        form = ContactForm()
+        success = True
+
+    return render(request, 'website/contact.html', {'form': form, 'success': success})
+
 
 
 def feedback_page(request):

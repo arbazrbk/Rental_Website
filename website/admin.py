@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import feedback, Property, register
+from .models import feedback, Property, register, contact
 
 @admin.register(Property)
 class propertyAdmin(admin.ModelAdmin):
@@ -13,3 +13,7 @@ class feedbackAdmin(admin.ModelAdmin):
 @admin.register(register)
 class registerAdmin(admin.ModelAdmin):
     list_display = ('username', 'email', 'country')        
+
+@admin.register(contact)
+class contactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone_number', 'message')

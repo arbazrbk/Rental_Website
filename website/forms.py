@@ -1,5 +1,5 @@
 from django import forms
-from .models import feedback, register , Property 
+from .models import contact, feedback, register , Property 
 from django.contrib.auth.forms import AuthenticationForm , PasswordChangeForm
 
 class FeedbackForm(forms.ModelForm):
@@ -11,7 +11,19 @@ class FeedbackForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email'}),
             'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Your Message'}),
         }
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = contact
+        fields = ['name', 'email', 'phone_number', 'message']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Phone Number'}),
+            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Your Message'}),
+        }
         
+                
 class RegisterForm(forms.ModelForm):
     class Meta:
         model = register

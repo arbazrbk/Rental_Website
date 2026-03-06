@@ -1,6 +1,115 @@
 {% extends 'website/base.html' %}
+{% load static %}
 {% block title %}About - DreamHome Realty{% endblock %}
 {% block content %}
-<h1>About Section</h1>
-<!-- Add your About section content here -->
+<!-- About Section -->
+<section id="about" class="pt-32 pb-20 lg:pt-36 lg:pb-28 bg-gray-50 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <!-- Image Side -->
+            <div class="relative">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <img
+                        src="{% static 'website/images/property-2.jpg' %}"
+                        alt="Our team"
+                        class="w-full h-[500px] object-cover"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                </div>
+                
+                <!-- Floating Stats Card -->
+                <div class="absolute -bottom-8 -right-4 lg:right-8 bg-white rounded-2xl shadow-xl p-6">
+                    <div class="flex gap-8">
+                        <div class="text-center">
+                            <svg class="w-6 h-6 text-primary-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                            <div class="text-2xl font-bold text-gray-900">500+</div>
+                            <div class="text-sm text-gray-500">Properties</div>
+                        </div>
+                        <div class="text-center">
+                            <svg class="w-6 h-6 text-primary-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            <div class="text-2xl font-bold text-gray-900">300+</div>
+                            <div class="text-sm text-gray-500">Happy Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <svg class="w-6 h-6 text-primary-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                            <div class="text-2xl font-bold text-gray-900">15+</div>
+                            <div class="text-sm text-gray-500">Awards Won</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Badge -->
+                <div class="absolute -top-4 -left-4 lg:left-8 bg-primary-600 text-white rounded-2xl p-6 shadow-xl">
+                    <div class="text-4xl font-bold">10+</div>
+                    <div class="text-sm text-primary-100">Years of<br>Experience</div>
+                </div>
+            </div>
+
+            <!-- Content Side -->
+            <div>
+                <span class="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+                    About Us
+                </span>
+                
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    Your Trusted Partner in
+                    <span class="text-primary-600">Real Estate</span>
+                </h2>
+                
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    At DreamHome Realty, we believe that finding the perfect home should be an 
+                    exciting journey, not a stressful one. With over a decade of experience in the 
+                    real estate industry, we have helped hundreds of families find their dream homes 
+                    and assisted countless property owners in maximizing their investments.
+                </p>
+                
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Our team of dedicated professionals combines local market expertise with a 
+                    personalized approach to ensure every client receives the attention and guidance 
+                    they deserve. Whether you are buying, selling, or renting, we are here to make 
+                    your real estate dreams a reality.
+                </p>
+
+                <!-- Achievements List -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="text-gray-700">Over 10 years of industry experience</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="text-gray-700">500+ properties sold and rented</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="text-gray-700">Award-winning customer service</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-primary-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="text-gray-700">Expert local market knowledge</span>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <a href="{% url 'contact' %}" class="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-colors">
+                    Work With Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
